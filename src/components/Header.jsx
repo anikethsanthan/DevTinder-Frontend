@@ -42,7 +42,7 @@ const Header = () => {
                   <div className="w-10 rounded-full">
                     <img
                       alt="user photo"
-                      src={userData.photoUrl}
+                      src={userData.photoUrl||"https://cdn-icons-png.flaticon.com/512/1177/1177568.png"}
                     />
                   </div>
                 </div>

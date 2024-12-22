@@ -13,6 +13,7 @@ const [password, setPassword]= useState("krishnaK@123");
 const [firstName, setFirstName]= useState("");
 const [lastName, setLastName]= useState("");
 const [loader, setLoader]= useState(false)
+const [error, setError]= useState("")
 
 
 const navigate= useNavigate();
@@ -29,20 +30,43 @@ const handleLogin=async()=>{
 
   navigate("/feed")
 
-  setLoader(false)
+ 
 
-  console.log(res)
+ 
 
  }catch(err){
-  console.log(err)
+  setError(err?.response?.data||"Something went wrong!")
+  
  }
+ setLoader(false)
   
 
 }
 
 const handleSignup= async()=>{
+  setLoader(true)
+try{
+  const res= await axios.post(BASE_URL+"/signup",{
+    emailId,
+    password,
+    firstName,
+    lastName
+  },{withCredentials:true})
 
-  console.log("signuup")
+  dispatch(addUser(res.data))
+
+  navigate("/feed")
+
+  
+
+
+}catch(err){
+  setError(err?.response?.data||"Something went wrong!")
+
+}
+setLoader(false)
+  
+
 }
 
 
@@ -119,6 +143,7 @@ const handleClick=()=>{
           </label>
         </div>
         <div className="form-control mt-6">
+          <p className="text-red-500 -mt-[30px] mb-3">{error}</p>
         <button 
         onClick={(e) => {
         e.preventDefault(); 
