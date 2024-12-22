@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-300">
+      <div className="navbar bg-base-300 ">
         <div className="flex-1">
           <Link to="/feed" className="btn btn-ghost text-2xl ml-5">Dev Tinder</Link>
         </div>
