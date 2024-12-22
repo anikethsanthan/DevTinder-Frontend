@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import {addUser} from "../utils/userSlice"
 
 const EditProfile = ({ user }) => {
+
   // State for user details
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
@@ -31,12 +32,12 @@ const EditProfile = ({ user }) => {
             
         },{withCredentials:true})
         
-        console.log(res?.data)
+        
         dispatch(addUser(res?.data))
         setAlert(true)
 
     }catch(err){
-        console.log(err.message)
+      alert(err.message)
     }
   
   }

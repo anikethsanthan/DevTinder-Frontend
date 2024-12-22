@@ -17,8 +17,8 @@ const Header = () => {
       await axios.post(`${BASE_URL}/logout`, {}, { withCredentials: true });
       dispatch(removeUser()); 
     return  navigate("/login"); 
-    } catch (error) {
-      console.error("Logout failed:", error);
+    } catch{
+    
       alert("An error occurred while logging out. Please try again.");
     }
   }
