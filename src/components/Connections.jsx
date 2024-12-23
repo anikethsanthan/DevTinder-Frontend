@@ -7,7 +7,6 @@ import{addConnections} from "../utils/connectionSlice"
 
 const Connections = () => {
     const connections= useSelector((store)=>store.connection)
-    console.log(connections)
     const dispatch= useDispatch()
 
     const fetchConnections=async()=>{
@@ -26,15 +25,19 @@ const Connections = () => {
         fetchConnections()
     },[])
 
-    if(!connections) return
-    if(connections.length===0) return <h1>No Connections found</h1>
+    if(!connections) return<h1 className=" font-semibold text-xl text-center mt-[30px]">No connections found...</h1>;
+    if(connections.length===0) return (
+      <h1 className="font-semibold text-xl text-center mt-[30px]">
+        No connections Found
+      </h1>
+    );
 
   return (
     <div>
       <h1 className="text-5xl font-bold flex justify-center pt-7 mb-[60px]"> My connections</h1>
 
-{connections.map((connection)=><>
-    <div className="flex justify-center m-2 ">
+{connections.map((connection)=><div key={connection._id}>
+    <div  className="flex justify-center m-2 ">
 
 
     <div className="menu bg-base-300 pl-10 justify-center rounded-l-2xl p-4">
@@ -50,7 +53,7 @@ const Connections = () => {
 
 
     </div>
-    </>)}
+    </div>)}
     </div>
   )
 }
