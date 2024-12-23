@@ -16,6 +16,8 @@ const EditProfile = ({ user }) => {
   const [gender, setGender] = useState(user.gender);
   const [skills, setSkills] = useState(user.skills);
   const [alert, setAlert]= useState(false)
+  const [error, setError]= useState(false)
+  
   const dispatch= useDispatch();
 
   const handleSubmit=async(event)=>{
@@ -32,12 +34,17 @@ const EditProfile = ({ user }) => {
             
         },{withCredentials:true})
         
-        
+        console.log(res)
         dispatch(addUser(res?.data))
-        setAlert(true)
+        if(res?.data){
+          setAlert(true)
+        }else{
+          throw new Error(res?.status)
+        }
+       
 
-    }catch(err){
-      alert(err.message)
+    }catch{
+      setError(true)
     }
   
   }
@@ -48,6 +55,12 @@ const EditProfile = ({ user }) => {
 
     },3000)
   },[alert])
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setError(false)
+    },3000)
+  },[error])
 
   return (
     <>
@@ -173,7 +186,7 @@ const EditProfile = ({ user }) => {
       {/* User Card */}
       <div className="w-1/3 bg-base-200 sticky top-0">
       
-        <div className="mt-[14%]">
+        <div className="mt-[5%]">
           <UserCard
             user={{ firstName, lastName, age, about, photoUrl, gender, skills }}
           />
@@ -193,9 +206,30 @@ const EditProfile = ({ user }) => {
     <div className="toast toast-top toast-center">
   
   <div className="alert alert-success">
-    <span>Profile updated succesfully!</span>
+    <span>Profile updated succesfully.</span>
   </div>
 </div>
+    </div>}
+
+
+    {/* error message */}
+    {error&&
+    <div className="flex justify-center">
+    <div role="alert" className=" flex justify-center absolute top-10 w-[30%] alert alert-error">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 shrink-0 stroke-current"
+    fill="none"
+    viewBox="0 0 24 24">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span>Error! Something went wrong.</span>
+</div>
+
     </div>}
     </>
   );

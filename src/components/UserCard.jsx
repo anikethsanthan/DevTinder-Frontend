@@ -7,13 +7,13 @@ const UserCard = ({user}) => {
       <div className="card card-compact bg-base-300 w-96 shadow-xl">
   <figure>
     <img
-    className="h-[450px] w-full object-cover"
+    className="h-[400px] w-full object-cover"
       src={photoUrl}
       alt="Shoes" />
   </figure>
   <div className="card-body">
     <h2 className="card-title">{firstName +" "+ lastName}</h2>
-    {age&&gender&& <p>{age +" "+ gender}</p>}
+    {age&&gender&& <p>{age +", "+ gender}</p>}
     <p>{about}</p>
     <p>{skills}</p>
     <div className="card-actions justify-center ">
