@@ -32,7 +32,27 @@ const Header = () => {
         <div className="flex-none">
           {userData && (
             <>
-              <p className="mr-4">Welcome {userData.firstName} {userData.lastName}</p>
+<div className=" flex justify-center">
+            <Link to={"/connections"}>
+            <div className="flex  flex-col items-center mr-[10px] mt-4">
+            <i  className="fa-solid fa-bell text-xl hover:scale-105 cursor-pointer"></i>
+            <label className="label pt-2">
+           <span className=" -mt-[10px] label-text">Notifications</span>
+           </label>
+           </div>
+           </Link>
+            <Link to={"/connections"}>
+            <div className="flex  flex-col items-center mr-[150px] mt-4">
+            <i  className="fa-solid fa-users text-xl hover:scale-105 cursor-pointer"></i>
+            <label className="label pt-2">
+           <span className=" -mt-[10px] label-text">My network</span>
+           </label>
+           </div>
+           </Link>
+           </div>
+
+            
+              <p className="mr-4">Welcome, {userData.firstName} </p>
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
@@ -48,7 +68,7 @@ const Header = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                 >
                   <li>
                     <Link to="/profile" className="justify-between">Profile</Link>
