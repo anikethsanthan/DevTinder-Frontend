@@ -1,7 +1,18 @@
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
 
 
 const UserCard = ({user}) => {
-    const{firstName, lastName,photoUrl, skills, about, age,gender}= user
+    const{firstName, lastName,photoUrl, skills, about, age,gender}= user;
+
+    const handleSendRequest= async()=>{
+      try{
+        const res= await axios.post(BASE_URL+)
+
+      }catch(err){
+        alert(err.message)
+      }
+    }
   return (
     <div>
       <div className="card card-compact bg-base-300 w-96 shadow-xl">
