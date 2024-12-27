@@ -1,8 +1,8 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests, removeRequest } from "../utils/requestSlicce";
-import { useEffect, } from "react";
+import { removeRequest } from "../utils/requestSlicce";
+
 
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
@@ -21,21 +21,7 @@ const Requests = () => {
     }
   };
 
-  const fetchRequests = async () => {
-    try {
-      const res = await axios.get(BASE_URL + "/user/requests/received", {
-        withCredentials: true,
-      });
 
-      dispatch(addRequests(res?.data));
-    } catch  {
-      console.log("error")
-    }
-  };
-
-  useEffect(() => {
-    fetchRequests();
-  }, []);
 
   if (!requests) return <h1 className="flex justify-center my-10"> No new requests found...</h1>;
 

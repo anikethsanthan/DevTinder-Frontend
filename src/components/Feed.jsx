@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { addFeed } from "../utils/feedSlice"
 import { useEffect } from "react"
 import UserCard from "./UserCard"
+import { addRequests } from "../utils/requestSlicce"
 
 
 
@@ -16,9 +17,23 @@ const Feed = () => {
   const res = await axios.get(BASE_URL+"/feed",{withCredentials:true})
   dispatch(addFeed(res.data))
   }
+  const fetchRequests = async () => {
+    try {
+      const res = await axios.get(BASE_URL + "/user/requests/received", {
+        withCredentials: true,
+      });
+
+      dispatch(addRequests(res?.data));
+    } catch  {
+      console.log("error")
+    }
+  };
+
+ 
 
   useEffect(()=>{
     getFeed()
+    fetchRequests();
   },[])
 
   if(!feed) return
