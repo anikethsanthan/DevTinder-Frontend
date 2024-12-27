@@ -55,7 +55,7 @@ try{
 
   dispatch(addUser(res.data))
 
-  navigate("/feed")
+  navigate("/profile")
 
   
 
