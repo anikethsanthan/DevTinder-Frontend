@@ -27,9 +27,9 @@ const Requests = () => {
         withCredentials: true,
       });
 
-      dispatch(addRequests(res.data.data));
-    } catch (err) {
-      alert(err.message)
+      dispatch(addRequests(res?.data));
+    } catch  {
+      console.log("error")
     }
   };
 
@@ -37,7 +37,7 @@ const Requests = () => {
     fetchRequests();
   }, []);
 
-  if (!requests) return;
+  if (!requests) return <h1 className="flex justify-center my-10"> No new requests found...</h1>;
 
   if (requests.length === 0)
     return <h1 className="flex justify-center my-10"> No Requests Found</h1>;
@@ -53,23 +53,24 @@ const Requests = () => {
         return (
           <div
             key={_id}
-            className=" flex justify-between items-center m-4 p-4 rounded-lg bg-base-300  mx-auto"
+            className=" flex  w-[1000px] items-center m-4 p-4 rounded-lg bg-base-300  mx-auto"
           >
-            <div>
+            
+            <div >
               <img
                 alt="photo"
-                className="w-20 h-20 rounded-full"
+                className="w-20 h-20 rounded-full object-cover"
                 src={photoUrl}
               />
             </div>
-            <div className="text-left mx-4 ">
+            <div className="text-left ml-4 mt-4 mb-4 flex-grow ">
               <h2 className="font-bold text-xl">
                 {firstName + " " + lastName}
               </h2>
               {age && gender && <p>{age + ", " + gender}</p>}
-              <p>{about}</p>
+              <p className="w-[660px]">{about}</p>
             </div>
-            <div>
+            <div  >
               <button
                 className="btn btn-primary mx-2"
                 onClick={() => reviewRequest("rejected", request._id)}
