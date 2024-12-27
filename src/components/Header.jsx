@@ -9,6 +9,7 @@ const Header = () => {
   const navigate= useNavigate()
   
   const userData = useSelector((store) => store.user);
+  const notifications= useSelector((store)=>store.requests);
 
 
 
@@ -35,7 +36,9 @@ const Header = () => {
         <div className=" flex justify-center">
             <Link to={"/requests"}>
             <div className="flex  flex-col items-center mr-[10px] mt-4">
-            <i  className="fa-solid fa-bell text-xl hover:scale-105 cursor-pointer"></i>
+              {Array.isArray(notifications) &&  notifications.length>0&&
+            <span className="indicator-item badge badge-secondary absolute -mt-[11px] ml-[36px] ">{notifications.length}</span>}
+            <i  className="fa-solid fa-bell text-xl hover:scale-105 cursor-pointer "></i>
             <label className="label pt-2">
            <span className=" -mt-[10px] label-text">Notifications</span>
            </label>
