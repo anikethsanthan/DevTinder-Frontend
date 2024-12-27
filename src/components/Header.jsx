@@ -28,7 +28,8 @@ const Header = () => {
     <div>
       <div className="navbar bg-base-300 ">
         <div className="flex-1">
-          <Link to="/feed" className="btn btn-ghost text-2xl ml-5">Dev Tinder</Link>
+          <img className=" ml-5 h-[30px] w-[30px] rounded-full" src="./Tinder-title-img.svg"></img>
+          <Link to="/feed" className="btn btn-ghost text-2xl ">Dev Tinder</Link>
         </div>
         <div className="flex-none">
           {userData && (
