@@ -75,7 +75,7 @@ const ForgotPassword = () => {
                         required
                     />
                 </div>
-                <div className="form-control w-full mt-4">
+                <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">New password</span>
                     </label>
