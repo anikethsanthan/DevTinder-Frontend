@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {addUser} from "../utils/userSlice"
 
@@ -139,7 +139,7 @@ const handleClick=()=>{
            placeholder="Enter a strong password" 
            className="input input-bordered" required />
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+            <Link to="/forgotpassword" className="label-text-alt link link-hover">Forgot password?</Link>
           </label>
         </div>
         <div className="form-control mt-6">

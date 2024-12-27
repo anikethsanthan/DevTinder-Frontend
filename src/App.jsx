@@ -8,6 +8,7 @@ import appStore from "./utils/appStore"
 import Profile from "./components/Profile"
 import Connections from "./components/Connections"
 import Requests from "./components/Requests"
+import ForgotPassword from "./components/ForgotPassword"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path="/profile" element={ <Profile/>}/>
       <Route path="/connections" element={ <Connections/>}/>
       <Route path="/requests" element={ <Requests/>}/>
+      <Route path="/forgotpassword" element={ <ForgotPassword/>}/>
 
       </Route>
     </Routes>
