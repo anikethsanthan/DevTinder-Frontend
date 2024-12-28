@@ -76,19 +76,33 @@ const handleClick=()=>{
 
   return (
     <div className="flex">
-      <div className="w-1/2">
-      <img className=" absolute object-cover w-1/2 h-full" src="./App-background.jpg" alt="bckground img"></img>
+      <div className="w-1/2 bg-gradient-to-b from-black">
+      <img className=" absolute object-cover w-full h-full" src="./Tinder_BCK.webp" alt="bckground img"></img>
+      <div className=" bg-gradient-to-b from-black h-full w-full absolute ">
+        <div className="ml-[60px] mt-[18%]">
+        <p className="text-7xl text-white  font-bold">Start Something Epic.</p></div>
+        <button type="button"
+         className="mt-[18px] ml-[300px]
+          p-2 rounded-xl pr-4 pl-4 text-white text-2xl font-semibold bg-gradient-to-r absolute from-pink-500 to-orange-500 ...">
+  Start Connecting
+</button>
+<p className="absolute w-1/2 mt-[80px] ml-[50px] text-white ">
+Single people, listen up: If you’re looking for love, want to start dating, or just keep it casual, you need to be on Tinder. With over 55 billion matches made, it’s the place to be to meet your next best match.
+<br></br> Let’s be real, the dating landscape looks very different today, as most people are meeting online. With Tinder, the world’s most popular free dating app, you have millions of other single people at your fingertips and they’re all ready to meet someone like you. Whether you’re straight or in the LGBTQIA community, Tinder’s here to bring you all the sparks.
+
+</p>
+</div>
       </div>
 
 
 
     {/* 2nd div */}
       <div className="w-1/2">
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-100 min-h-screen">
   <div className="hero-content flex-col lg:flex-row-reverse">
   
     <div className="card bg-base-100 w-[160%] max-w-sm shrink-0 shadow-2xl">
-    <h1 className="text-5xl font-bold flex justify-center pt-7">{isSignIn ? "Login now!":"SignUp!"}</h1>
+    <h1 className="text-5xl font-bold flex justify-center pt-7">{isSignIn ? "Login now":"SignUp"}</h1>
       <form className="card-body">
 
         {!isSignIn&&<>
