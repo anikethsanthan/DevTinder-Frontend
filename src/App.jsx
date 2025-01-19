@@ -9,6 +9,7 @@ import Profile from "./components/Profile"
 import Connections from "./components/Connections"
 import Requests from "./components/Requests"
 import ForgotPassword from "./components/ForgotPassword"
+import Chat from "./components/chat"
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
       <Route path="/connections" element={ <Connections/>}/>
       <Route path="/requests" element={ <Requests/>}/>
       <Route path="/forgotpassword" element={ <ForgotPassword/>}/>
+      <Route path="/chat/:tagetUserId" element={ <Chat/>}/>
+
 
       </Route>
     </Routes>
